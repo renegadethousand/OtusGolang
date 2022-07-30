@@ -14,7 +14,7 @@ func Top10(str string) []string {
 	str = strings.ToLower(str)
 	str = strings.ReplaceAll(str, ".", "")
 	strSlice := strings.Fields(str)
-	wordSlice := []word{}
+	wordSlice := make([]word, len(strSlice))
 	returnSlice := []string{}
 	mapWords := map[string]int{}
 	for _, v := range strSlice {
