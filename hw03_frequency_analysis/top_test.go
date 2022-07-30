@@ -53,11 +53,6 @@ func TestTop10(t *testing.T) {
 			"летом",     // 1
 			"принесешь", // 1
 			"припасешь", // 1
-			"",
-			"",
-			"",
-			"",
-			"",
 		}
 		require.Equal(t, expected, Top10(text2))
 	})
