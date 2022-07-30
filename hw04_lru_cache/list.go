@@ -63,26 +63,6 @@ func (l *list) PushBack(v interface{}) *ListItem {
 }
 
 func (l *list) Remove(i *ListItem) {
-	currentElement := l.Front()
-	if currentElement == i {
-		removeElement(l, currentElement)
-	} else {
-		for currentElement != nil {
-			currentElement = currentElement.Next
-			if currentElement == i {
-				removeElement(l, currentElement)
-				break
-			}
-		}
-	}
-}
-
-func (l *list) MoveToFront(i *ListItem) {
-	l.Remove(i)
-	l.PushFront(i.Value)
-}
-
-func removeElement(l *list, i *ListItem) {
 	left := i.Prev
 	right := i.Next
 	if left != nil {
@@ -98,6 +78,11 @@ func removeElement(l *list, i *ListItem) {
 		l.back = left
 	}
 	l.size--
+}
+
+func (l *list) MoveToFront(i *ListItem) {
+	l.Remove(i)
+	l.PushFront(i.Value)
 }
 
 func NewList() List {
