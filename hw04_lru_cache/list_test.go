@@ -7,6 +7,18 @@ import (
 )
 
 func TestList(t *testing.T) {
+	t.Run("simple", func(t *testing.T) {
+		l := NewList()
+
+		l.PushFront(10) // [10]
+		require.Equal(t, 10, l.Front().Value.(int))
+		l.PushBack(20) // [10, 20]
+		require.Equal(t, 20, l.Back().Value.(int))
+		l.PushBack(30) // [10, 20, 30]
+		require.Equal(t, 30, l.Back().Value.(int))
+		require.Equal(t, 3, l.Len())
+	})
+
 	t.Run("empty list", func(t *testing.T) {
 		l := NewList()
 
